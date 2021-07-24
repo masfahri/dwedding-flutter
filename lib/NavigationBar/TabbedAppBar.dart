@@ -1,6 +1,14 @@
+import 'package:dwedding/models/Mempelai.dart';
 import 'package:flutter/material.dart';
 
-class TabbedAppBarDemo extends StatelessWidget {
+class TabbedAppBarDemoFull extends StatefulWidget {
+  const TabbedAppBarDemoFull({Key? key}) : super(key: key);
+
+  @override
+  _TabbedAppBarDemoFullState createState() => _TabbedAppBarDemoFullState();
+}
+
+class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,25 +53,34 @@ class TabbedAppBarDemo extends StatelessWidget {
       ),
     );
   }
+
+  void initState() {
+    Mempelai.getMempelai('fajar-tika');
+  }
 }
 
 class Choice {
   final String title;
+  final String namaPria;
   final IconData icon;
-  const Choice({required this.title, required this.icon});
+  const Choice(
+      {required this.title, required this.icon, required this.namaPria});
 }
 
 const List<Choice> choices = <Choice>[
-  Choice(title: 'SAMPUL', icon: Icons.home_filled),
-  Choice(title: 'MEMPELAI', icon: Icons.favorite),
-  Choice(title: 'RSVP', icon: Icons.rsvp),
-  Choice(title: 'ACARA', icon: Icons.date_range_rounded),
-  Choice(title: 'UCAPAN', icon: Icons.comment),
-  Choice(title: 'ALBUM', icon: Icons.image_sharp),
-  Choice(title: 'CERITA KITA', icon: Icons.people),
-  Choice(title: 'LOKASI', icon: Icons.location_city_outlined),
-  Choice(title: 'GIFT', icon: Icons.card_giftcard_rounded),
-  Choice(title: 'AMPLOP ONLINE', icon: Icons.account_balance_wallet),
+  Choice(title: 'SAMPUL', icon: Icons.home_filled, namaPria: 'asd'),
+  Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
+  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
+  Choice(title: 'ACARA', icon: Icons.date_range_rounded, namaPria: 'asd'),
+  Choice(title: 'UCAPAN', icon: Icons.comment, namaPria: 'asd'),
+  Choice(title: 'ALBUM', icon: Icons.image_sharp, namaPria: 'asd'),
+  Choice(title: 'CERITA KITA', icon: Icons.people, namaPria: 'asd'),
+  Choice(title: 'LOKASI', icon: Icons.location_city_outlined, namaPria: 'asd'),
+  Choice(title: 'GIFT', icon: Icons.card_giftcard_rounded, namaPria: 'asd'),
+  Choice(
+      title: 'AMPLOP ONLINE',
+      icon: Icons.account_balance_wallet,
+      namaPria: 'asd'),
 ];
 
 class ChoicePage extends StatelessWidget {
