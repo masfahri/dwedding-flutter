@@ -1,4 +1,6 @@
 import 'package:dwedding/models/Mempelai.dart';
+import 'package:dwedding/views/home_page.dart';
+import 'package:dwedding/views/splashscreen_page.dart';
 import 'package:flutter/material.dart';
 
 class TabbedAppBarDemoFull extends StatefulWidget {
@@ -16,19 +18,9 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
         length: choices.length,
         child: Scaffold(
             appBar: AppBar(
-              title: const Text('Tabbed AppBar'),
+              title: const Text('Digital Wedding'),
             ),
-            body: TabBarView(
-              children: choices.map((Choice choice) {
-                return Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: ChoicePage(
-                    choice: choice,
-                    key: null,
-                  ),
-                );
-              }).toList(),
-            ),
+            body: TabBarView(children: <Widget>[HomePage(), SplashScreen()]),
             bottomNavigationBar: Container(
               color: Colors.lightBlueAccent[700],
               child: Container(
@@ -53,10 +45,6 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
       ),
     );
   }
-
-  void initState() {
-    Mempelai.getMempelai('fajar-tika');
-  }
 }
 
 class Choice {
@@ -70,22 +58,26 @@ class Choice {
 const List<Choice> choices = <Choice>[
   Choice(title: 'SAMPUL', icon: Icons.home_filled, namaPria: 'asd'),
   Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
-  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
-  Choice(title: 'ACARA', icon: Icons.date_range_rounded, namaPria: 'asd'),
-  Choice(title: 'UCAPAN', icon: Icons.comment, namaPria: 'asd'),
-  Choice(title: 'ALBUM', icon: Icons.image_sharp, namaPria: 'asd'),
-  Choice(title: 'CERITA KITA', icon: Icons.people, namaPria: 'asd'),
-  Choice(title: 'LOKASI', icon: Icons.location_city_outlined, namaPria: 'asd'),
-  Choice(title: 'GIFT', icon: Icons.card_giftcard_rounded, namaPria: 'asd'),
-  Choice(
-      title: 'AMPLOP ONLINE',
-      icon: Icons.account_balance_wallet,
-      namaPria: 'asd'),
+  // Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
+  // Choice(title: 'ACARA', icon: Icons.date_range_rounded, namaPria: 'asd'),
+  // Choice(title: 'UCAPAN', icon: Icons.comment, namaPria: 'asd'),
+  // Choice(title: 'ALBUM', icon: Icons.image_sharp, namaPria: 'asd'),
+  // Choice(title: 'CERITA KITA', icon: Icons.people, namaPria: 'asd'),
+  // Choice(title: 'LOKASI', icon: Icons.location_city_outlined, namaPria: 'asd'),
+  // Choice(title: 'GIFT', icon: Icons.card_giftcard_rounded, namaPria: 'asd'),
+  // Choice(
+  //     title: 'AMPLOP ONLINE',
+  //     icon: Icons.account_balance_wallet,
+  //     namaPria: 'asd'),
 ];
 
 class ChoicePage extends StatelessWidget {
   const ChoicePage({Key? key, required this.choice}) : super(key: key);
   final Choice choice;
+
+  void getData() async {
+    Mempelai.getMempelai('fajar-tika');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +98,7 @@ class ChoicePage extends StatelessWidget {
               choice.title,
               style: textStyle,
             ),
+            RaisedButton(onPressed: getData)
           ],
         ),
       ),
