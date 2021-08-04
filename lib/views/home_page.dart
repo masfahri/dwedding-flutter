@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -8,6 +9,12 @@ class HomePage extends StatelessWidget {
   Future<dynamic> _fecthDataMempelai() async {
     var result = await http.get(Uri.parse(apiUrl));
     return json.decode(result.body)['data'];
+  }
+
+  onFinishedAnimate(String text) {
+    Text(text,
+        style: TextStyle(
+            fontFamily: 'Just', fontSize: 20, fontWeight: FontWeight.w900));
   }
 
   @override
@@ -24,98 +31,128 @@ class HomePage extends StatelessWidget {
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               return Card(
-                color: Colors.lightBlueAccent[700],
-                child: Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        snapshot.data['flag'] == 'resepsi'
-                            ? '- The Wedding Of -'.toUpperCase()
-                            : '- The Engagement Of -'.toUpperCase(),
-                        style: TextStyle(
-                            fontFamily: 'Just',
-                            fontSize: 50,
-                            fontWeight: FontWeight.w900),
-                      ),
-                      Container(
-                        child: Wrap(
-                          spacing: 8.0, // gap between adjacent chips
-                          runSpacing: 4.0, // gap between lines
-                          direction:
-                              Axis.horizontal, // main axis (rows or columns)
-                          children: <Widget>[
-                            Center(
-                              child: Text(
-                                  snapshot.data['nama_pria'].toUpperCase(),
-                                  style: TextStyle(
-                                      fontFamily: 'Just',
-                                      fontSize: 50,
-                                      fontWeight: FontWeight.w900)),
-                            ),
-                            Center(
-                              child: Text(" & ",
-                                  style: TextStyle(
-                                      fontFamily: 'Just',
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.w900)),
-                            ),
-                            Center(
-                              child: Text(
-                                  snapshot.data['nama_wanita'].toUpperCase(),
-                                  style: TextStyle(
-                                      fontFamily: 'Just',
-                                      fontSize: 50,
-                                      fontWeight: FontWeight.w900)),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://i.pinimg.com/736x/ee/99/47/ee9947bc2f52b7ee300ee721c8910f0a.jpg"),
+                            fit: BoxFit.cover)),
+                    child: Center(
+                      child: SingleChildScrollView(
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
+                            SizedBox(height: 10),
+                            AnimatedTextKit(
+                              animatedTexts: [
+                                RotateAnimatedText(
+                                  snapshot.data['flag'] == 'resepsi'
+                                      ? '- The Wedding Of -'.toUpperCase()
+                                      : '- The Engagement Of -'.toUpperCase(),
+                                  textStyle: TextStyle(
+                                      fontFamily: 'Just',
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w900),
+                                  rotateOut: false,
+                                ),
+                              ],
+                              totalRepeatCount: 1,
+                            ),
+                            SizedBox(height: 10),
                             Container(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                              child: Wrap(
+                                direction: Axis
+                                    .horizontal, // main axis (rows or columns)
                                 children: <Widget>[
-                                  Stack(
-                                    children: <Widget>[
-                                      Container(
-                                        padding: new EdgeInsets.only(top: 5.0),
-                                        alignment: Alignment.center,
-                                        child: CircleAvatar(
-                                            radius: 100,
-                                            backgroundImage: NetworkImage(
-                                                'https://u.digital.wedding/assets/users/' +
-                                                    snapshot.data['kunci'] +
-                                                    '/kita.png')),
-                                      ),
-                                      // Container(
-                                      //     color: Colors.transparent,
-                                      //     alignment: Alignment.center,
-                                      //     child: CircleAvatar(
-                                      //         radius: (52),
-                                      //         backgroundColor: Colors.white,
-                                      //         child: ClipRRect(
-                                      //           borderRadius:
-                                      //               BorderRadius.circular(50),
-                                      //           child: Image.asset(
-                                      //               "https://u.digital.wedding/assets/themes/blueroses/img/bg-flower.png"),
-                                      //         ))),
-                                    ],
+                                  Center(
+                                    child: AnimatedTextKit(
+                                      animatedTexts: [
+                                        TypewriterAnimatedText(
+                                          snapshot.data['nama_pria']
+                                                  .toUpperCase() +
+                                              '\n' +
+                                              '&' +
+                                              '\n' +
+                                              snapshot.data['nama_wanita']
+                                                  .toUpperCase(),
+                                          textStyle: TextStyle(
+                                              fontFamily: 'Just',
+                                              fontSize: 50,
+                                              fontWeight: FontWeight.w900),
+                                          speed:
+                                              const Duration(milliseconds: 100),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                      totalRepeatCount: 1,
+                                    ),
                                   ),
+                                ],
+                              ),
+                            ),
+                            AnimatedContainer(
+                              duration: Duration(seconds: 10000),
+                              curve: Curves.bounceIn,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Column(
+                                      children: <Widget>[
+                                        Stack(
+                                          alignment: Alignment.center,
+                                          children: <Widget>[
+                                            Positioned(
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                child: CircleAvatar(
+                                                  radius: 100.0,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  backgroundImage: NetworkImage(
+                                                      'https://u.digital.wedding/assets/users/' +
+                                                          snapshot
+                                                              .data['kunci'] +
+                                                          '/kita.png'),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(30.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(90),
+                                                child: CircleAvatar(
+                                                  radius: (120),
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  child: ClipRRect(
+                                                    child: Image.network(
+                                                      bgFlower.toString(),
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
                                 ],
                               ),
                             )
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
-              );
+                      ),
+                    ),
+                  ));
             } else {
               return Center(
                   child: CircularProgressIndicator(

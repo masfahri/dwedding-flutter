@@ -6,6 +6,8 @@ import 'package:dwedding/views/home_page.dart';
 import 'package:dwedding/views/mempelai_page.dart';
 import 'package:dwedding/views/rsvp_page.dart';
 import 'package:dwedding/views/splashscreen_page.dart';
+import 'package:mobile_web_view/mobile_web_view.dart';
+
 import 'package:dwedding/views/ucapan_page.dart';
 import 'package:flutter/material.dart';
 

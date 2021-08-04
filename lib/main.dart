@@ -1,5 +1,6 @@
 import 'package:dwedding/NavigationBar/TabbedAppBar.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_web_view/mobile_web_view.dart';
 
 void main() {
   runApp(TabbedAppBarDemoFull());
@@ -23,7 +24,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MobileWebView(
+        // Sets background color
+        backgroundColor: Colors.blueGrey,
+        // Sets status bar Icon Color
+        statusBarIconColor: Colors.white,
+        // Content will build widgets to right side
+        content: TabbedAppBarDemoFull(),
+        // Home Widget
+        child: TabbedAppBarDemoFull(),
+      ),
     );
   }
 }
