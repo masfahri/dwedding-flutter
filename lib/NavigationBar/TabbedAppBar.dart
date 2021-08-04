@@ -1,6 +1,12 @@
+import 'package:dwedding/main.dart';
 import 'package:dwedding/models/Mempelai.dart';
+import 'package:dwedding/views/acara_page.dart';
+import 'package:dwedding/views/galery_page.dart';
 import 'package:dwedding/views/home_page.dart';
+import 'package:dwedding/views/mempelai_page.dart';
+import 'package:dwedding/views/rsvp_page.dart';
 import 'package:dwedding/views/splashscreen_page.dart';
+import 'package:dwedding/views/ucapan_page.dart';
 import 'package:flutter/material.dart';
 
 class TabbedAppBarDemoFull extends StatefulWidget {
@@ -20,25 +26,41 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
             appBar: AppBar(
               title: const Text('Digital Wedding'),
             ),
-            body: TabBarView(children: <Widget>[HomePage(), SplashScreen()]),
+            body: TabBarView(children: <Widget>[
+              HomePage(),
+              MempelaiPage(),
+              RsvpPage(),
+              AcaraPage(),
+              UcapanPage(),
+              GaleryPage(),
+              HomePage(),
+              MempelaiPage(),
+              MyHomePage(title: 'WAW'),
+              HomePage(),
+            ]),
             bottomNavigationBar: Container(
               color: Colors.lightBlueAccent[700],
               child: Container(
                 padding: EdgeInsets.only(bottom: 10.0),
-                child: new TabBar(
-                  indicator: UnderlineTabIndicator(
-                    borderSide:
-                        BorderSide(color: Color(0xDD613896), width: 8.0),
-                    insets: EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 40.0),
+                child: SizedBox(
+                  height: 80,
+                  child: AppBar(
+                    bottom: TabBar(
+                      indicator: UnderlineTabIndicator(
+                        borderSide:
+                            BorderSide(color: Color(0xDD613896), width: 8.0),
+                        insets: EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 40.0),
+                      ),
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      isScrollable: true,
+                      tabs: choices.map<Widget>((Choice choice) {
+                        return Tab(
+                          text: choice.title,
+                          icon: Icon(choice.icon),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  isScrollable: true,
-                  tabs: choices.map<Widget>((Choice choice) {
-                    return Tab(
-                      text: choice.title,
-                      icon: Icon(choice.icon),
-                    );
-                  }).toList(),
                 ),
               ),
             )),
@@ -58,7 +80,14 @@ class Choice {
 const List<Choice> choices = <Choice>[
   Choice(title: 'SAMPUL', icon: Icons.home_filled, namaPria: 'asd'),
   Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
-  // Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
+  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
+  Choice(title: 'ACARA', icon: Icons.lock_clock_outlined, namaPria: 'asd'),
+  Choice(title: 'UCAPAN', icon: Icons.chat_outlined, namaPria: 'asd'),
+  Choice(title: 'GALERI', icon: Icons.rsvp, namaPria: 'asd'),
+  Choice(title: 'SAMPUL', icon: Icons.home_filled, namaPria: 'asd'),
+  Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
+  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
+  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
   // Choice(title: 'ACARA', icon: Icons.date_range_rounded, namaPria: 'asd'),
   // Choice(title: 'UCAPAN', icon: Icons.comment, namaPria: 'asd'),
   // Choice(title: 'ALBUM', icon: Icons.image_sharp, namaPria: 'asd'),
