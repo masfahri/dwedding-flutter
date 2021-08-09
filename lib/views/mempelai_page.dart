@@ -1,3 +1,6 @@
+import 'package:dwedding/utils/SizeConfig.dart';
+import 'package:dwedding/views/components/mempelai_pria.dart';
+import 'package:dwedding/views/components/mempelai_wanita.dart';
 import 'package:flutter/material.dart';
 
 class MempelaiPage extends StatefulWidget {
@@ -10,107 +13,46 @@ class MempelaiPage extends StatefulWidget {
 class _MempelaiPageState extends State<MempelaiPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-          color: Colors.lightBlueAccent[700],
-          child: Card(
-            color: Colors.lightBlueAccent[700],
-            child: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          "https://i.pinimg.com/736x/ee/99/47/ee9947bc2f52b7ee300ee721c8910f0a.jpg"),
-                      fit: BoxFit.cover)),
-              child: Center(
-                  child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(100, 20, 100, 20),
-                      child: Image.network(
-                          "https://u.digital.wedding/assets/base/img/bismillah.png",
-                          height: 50,
-                          fit: BoxFit.contain),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(50, 20, 50, 20),
-                      child: Text(
-                        "Assalamu'alaikum warahmatullahi wabarakatuh Dengan memohon rahmat dan ridho Allah SWT, Kami akan menyelenggarakan resepsi pernikahan Putra-Putri kami :",
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Container(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      CircleAvatar(
-                                        radius: 70,
-                                        backgroundImage: NetworkImage(
-                                          "https://u.digital.wedding/assets/themes/blueroses/img/bg-flower.png",
-                                        ),
-                                        backgroundColor: Colors.transparent,
-                                        child: CircleAvatar(
-                                          radius: 50,
-                                          backgroundImage: NetworkImage(
-                                              'https://u.digital.wedding/assets/users/6186daadf651cf00fb89bde4b1301919/groom.png'),
-                                        ),
-                                      ),
-                                      Text("Romeo"),
-                                      Text("Bpk. Wayaw S.pd"),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Text('Dengan'),
-                          Container(
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      CircleAvatar(
-                                        radius: 70,
-                                        backgroundImage: NetworkImage(
-                                          "https://u.digital.wedding/assets/themes/blueroses/img/bg-flower.png",
-                                        ),
-                                        backgroundColor: Colors.transparent,
-                                        child: CircleAvatar(
-                                          radius: 50,
-                                          backgroundImage: NetworkImage(
-                                              'https://u.digital.wedding/assets/users/6186daadf651cf00fb89bde4b1301919/groom.png'),
-                                        ),
-                                      ),
-                                      Text("Bpk. Wayaw S.pd"),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Text("Wiw"),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              )),
+    // SizeConfig().init(context);
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.red,
+          // Background
+          image: DecorationImage(
+              image: new NetworkImage(
+                  "https://cdn.pixabay.com/photo/2020/09/15/16/18/background-5574100_1280.png"),
+              fit: BoxFit.cover),
+        ),
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 100),
+            Container(
+              child: Image.network(
+                "https://u.digital.wedding/assets/base/img/bismillah.png",
+                height: 50,
+              ),
             ),
-          )),
+            MempelaiPria(),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+              child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Text("&",
+                      style: TextStyle(fontSize: 40, fontFamily: "Playball"),
+                      textAlign: TextAlign.center),
+                ],
+              ),
+            ),
+            MempelaiWanita()
+          ],
+        ),
+      ),
     );
   }
 }

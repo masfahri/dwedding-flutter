@@ -29,7 +29,9 @@ dependencies:
   flutter_countdown_timer: ^4.1.0
   animated_text_kit: ^4.2.1
   mobile_web_view: ^0.1.2
+  slide_countdown_clock: ^1.0.3
 
+  # google_maps: ">=3.0.0 <4.0.0"
 
 
 
@@ -37,10 +39,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   url_launcher: ^6.0.9
+  google_maps_flutter_web: ^0.3.0+3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.0.0
+  build_test: any
+  build_web_compilers: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -51,6 +57,18 @@ flutter:
     - family: Just
       fonts:
         - asset: assets/fonts/Just-Another-Hand.ttf
+    - family: Playball
+      fonts:
+        - asset: assets/fonts/Playball-Regular.ttf
+    - family: Redressed
+      fonts:
+        - asset: assets/fonts/Redressed-Regular.ttf
+    - family: DancingScript
+      fonts:
+        - asset: assets/fonts/DancingScript.ttf
+    - family: JosefinSlab
+      fonts:
+        - asset: assets/fonts/JosefinSlab.ttf
 
   # images:
   #   assets:

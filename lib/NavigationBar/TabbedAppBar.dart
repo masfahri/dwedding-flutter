@@ -30,20 +30,19 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
             ),
             body: TabBarView(children: <Widget>[
               HomePage(),
+              AcaraPage(),
               MempelaiPage(),
               RsvpPage(),
-              AcaraPage(),
               UcapanPage(),
               GaleryPage(),
               HomePage(),
               MempelaiPage(),
-              MyHomePage(title: 'WAW'),
+              HomePage(),
               HomePage(),
             ]),
             bottomNavigationBar: Container(
-              color: Colors.lightBlueAccent[700],
+              color: Colors.transparent,
               child: Container(
-                padding: EdgeInsets.only(bottom: 10.0),
                 child: SizedBox(
                   height: 80,
                   child: AppBar(
@@ -83,10 +82,10 @@ const List<Choice> choices = <Choice>[
   Choice(title: 'SAMPUL', icon: Icons.home_filled, namaPria: 'asd'),
   Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
   Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
-  Choice(title: 'ACARA', icon: Icons.lock_clock_outlined, namaPria: 'asd'),
+  Choice(title: 'ACARA', icon: Icons.event, namaPria: 'asd'),
   Choice(title: 'UCAPAN', icon: Icons.chat_outlined, namaPria: 'asd'),
   Choice(title: 'GALERI', icon: Icons.rsvp, namaPria: 'asd'),
-  Choice(title: 'SAMPUL', icon: Icons.home_filled, namaPria: 'asd'),
+  Choice(title: 'GIFT', icon: Icons.card_giftcard, namaPria: 'asd'),
   Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
   Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
   Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
