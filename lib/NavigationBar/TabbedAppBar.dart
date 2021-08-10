@@ -25,46 +25,46 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
       home: DefaultTabController(
         length: choices.length,
         child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Digital Wedding'),
-            ),
-            body: TabBarView(children: <Widget>[
-              HomePage(),
-              AcaraPage(),
-              MempelaiPage(),
-              RsvpPage(),
-              UcapanPage(),
-              GaleryPage(),
-              HomePage(),
-              MempelaiPage(),
-              HomePage(),
-              HomePage(),
-            ]),
-            bottomNavigationBar: Container(
-              color: Colors.transparent,
-              child: Container(
-                child: SizedBox(
-                  height: 80,
-                  child: AppBar(
-                    bottom: TabBar(
-                      indicator: UnderlineTabIndicator(
-                        borderSide:
-                            BorderSide(color: Color(0xDD613896), width: 8.0),
-                        insets: EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 40.0),
-                      ),
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      isScrollable: true,
-                      tabs: choices.map<Widget>((Choice choice) {
-                        return Tab(
-                          text: choice.title,
-                          icon: Icon(choice.icon),
-                        );
-                      }).toList(),
+          appBar: AppBar(
+            title: const Text('Digital Wedding'),
+          ),
+          body: TabBarView(children: <Widget>[
+            HomePage(), // Sampul
+            MempelaiPage(), // Mempelai
+            AcaraPage(), // Acara
+            RsvpPage(), // RSVP
+            UcapanPage(), //Ucapan
+            GaleryPage(), // Galeri
+            HomePage(), // Gift
+            MempelaiPage(),
+            HomePage(),
+          ]),
+          bottomNavigationBar: Container(
+            color: Colors.transparent,
+            child: Container(
+              child: SizedBox(
+                height: 80,
+                child: AppBar(
+                  bottom: TabBar(
+                    indicator: UnderlineTabIndicator(
+                      borderSide:
+                          BorderSide(color: Color(0xDD613896), width: 8.0),
+                      insets: EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 40.0),
                     ),
+                    indicatorSize: TabBarIndicatorSize.label,
+                    isScrollable: true,
+                    tabs: choices.map<Widget>((Choice choice) {
+                      return Tab(
+                        text: choice.title,
+                        icon: Icon(choice.icon),
+                      );
+                    }).toList(),
                   ),
                 ),
               ),
-            )),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -81,24 +81,13 @@ class Choice {
 const List<Choice> choices = <Choice>[
   Choice(title: 'SAMPUL', icon: Icons.home_filled, namaPria: 'asd'),
   Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
-  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
   Choice(title: 'ACARA', icon: Icons.event, namaPria: 'asd'),
+  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
   Choice(title: 'UCAPAN', icon: Icons.chat_outlined, namaPria: 'asd'),
   Choice(title: 'GALERI', icon: Icons.rsvp, namaPria: 'asd'),
   Choice(title: 'GIFT', icon: Icons.card_giftcard, namaPria: 'asd'),
   Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
   Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
-  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
-  // Choice(title: 'ACARA', icon: Icons.date_range_rounded, namaPria: 'asd'),
-  // Choice(title: 'UCAPAN', icon: Icons.comment, namaPria: 'asd'),
-  // Choice(title: 'ALBUM', icon: Icons.image_sharp, namaPria: 'asd'),
-  // Choice(title: 'CERITA KITA', icon: Icons.people, namaPria: 'asd'),
-  // Choice(title: 'LOKASI', icon: Icons.location_city_outlined, namaPria: 'asd'),
-  // Choice(title: 'GIFT', icon: Icons.card_giftcard_rounded, namaPria: 'asd'),
-  // Choice(
-  //     title: 'AMPLOP ONLINE',
-  //     icon: Icons.account_balance_wallet,
-  //     namaPria: 'asd'),
 ];
 
 class ChoicePage extends StatelessWidget {

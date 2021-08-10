@@ -1,3 +1,4 @@
+import 'package:dwedding/views/components/galeri_carousel.dart';
 import 'package:flutter/material.dart';
 
 class GaleryPage extends StatefulWidget {
@@ -10,17 +11,6 @@ class GaleryPage extends StatefulWidget {
 class _GaleryPageState extends State<GaleryPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Card(
-      child: GridView.count(
-        crossAxisCount: 2,
-        children: List.generate(100, (index) {
-          return Center(
-            child: Image.network(
-                "https://u.digital.wedding/assets/users/6186daadf651cf00fb89bde4b1301919/groom.png"),
-          );
-        }),
-      ),
-    ));
+    return Scaffold(body: GaleriCarousel());
   }
 }
