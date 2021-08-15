@@ -1,6 +1,7 @@
 import 'package:dwedding/main.dart';
 import 'package:dwedding/models/Mempelai.dart';
 import 'package:dwedding/views/acara_page.dart';
+import 'package:dwedding/views/cerita_page.dart';
 import 'package:dwedding/views/galery_page.dart';
 import 'package:dwedding/views/home_page.dart';
 import 'package:dwedding/views/mempelai_page.dart';
@@ -35,8 +36,8 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
             RsvpPage(), // RSVP
             UcapanPage(), //Ucapan
             GaleryPage(), // Galeri
+            CeritaPage(), // Cerita
             HomePage(), // Gift
-            MempelaiPage(),
             HomePage(),
           ]),
           bottomNavigationBar: Container(
@@ -85,7 +86,7 @@ const List<Choice> choices = <Choice>[
   Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
   Choice(title: 'UCAPAN', icon: Icons.chat_outlined, namaPria: 'asd'),
   Choice(title: 'GALERI', icon: Icons.rsvp, namaPria: 'asd'),
-  Choice(title: 'GIFT', icon: Icons.card_giftcard, namaPria: 'asd'),
+  Choice(title: 'CERITA', icon: Icons.timeline, namaPria: 'asd'),
   Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
   Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
 ];

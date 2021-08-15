@@ -12,9 +12,11 @@ class HomePage extends StatelessWidget {
   }
 
   onFinishedAnimate(String text) {
-    Text(text,
-        style: TextStyle(
-            fontFamily: 'Just', fontSize: 20, fontWeight: FontWeight.w900));
+    Text(
+      text,
+      style: TextStyle(
+          fontFamily: 'Just', fontSize: 20, fontWeight: FontWeight.w900),
+    );
   }
 
   @override
