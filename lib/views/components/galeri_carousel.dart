@@ -74,6 +74,7 @@ class GaleriCarousel extends StatefulWidget {
 
 class _GaleriCarouselState extends State<GaleriCarousel> {
   final CarouselController _controller = CarouselController();
+  bool _flag = true;
 
   @override
   void initState() {
@@ -110,6 +111,7 @@ class _GaleriCarouselState extends State<GaleriCarousel> {
           ),
           Container(
             height: 30.0,
+            margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
@@ -117,34 +119,21 @@ class _GaleriCarouselState extends State<GaleriCarousel> {
                   onPressed: () => _controller.previousPage(),
                   child: Text('←'),
                 ),
-
                 for (var i = 0; i < imgList.length; i++)
                   ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.transparent),
+                    onPressed: () => {
+                      _controller.animateToPage(i),
+                      setState(() => _flag = !_flag),
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: _flag
+                          ? Colors.red
+                          : Colors.teal, // This is what you need!
                     ),
-                    onPressed: () => _controller.animateToPage(i),
                     child: Image.network(
                       imgList[i],
                     ),
                   ),
-
-                // ...Iterable<int>.generate(imgList.length).map(
-                //   (int pageIndex) => Flexible(
-                //     child: ElevatedButton(
-                //       style: ButtonStyle(
-                //         backgroundColor:
-                //             MaterialStateProperty.all(Colors.transparent),
-                //       ),
-                //       onPressed: () => _controller.animateToPage(pageIndex),
-                //       child: Image.network(
-                //         imgList[pageIndex],
-                //       ),
-                //     ),
-                //   ),
-                // ),
-
                 ElevatedButton(
                   onPressed: () => _controller.nextPage(),
                   child: Text('→'),

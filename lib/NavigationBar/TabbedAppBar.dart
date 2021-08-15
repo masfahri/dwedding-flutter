@@ -26,7 +26,7 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
         length: choices.length,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('xxxx'),
+            title: const Text('Digital Wedding'),
           ),
           body: TabBarView(children: <Widget>[
             HomePage(), // Sampul
