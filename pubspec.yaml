@@ -45,6 +45,11 @@ dependencies:
   google_maps_flutter_web: ^0.3.0+3
   flutter_highlight: ^0.7.0
   google_fonts: ^2.1.0
+  qlevar_router: ^1.4.4
+  credit_card: 0.1.6
+  awesome_card: ^1.1.5
+  snack: ^2.0.0
+  cached_network_image: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -74,10 +79,12 @@ flutter:
     - family: JosefinSlab
       fonts:
         - asset: assets/fonts/JosefinSlab.ttf
+  
+        # Images
+  assets:
+    - assets/themes/flowerside/background.png
+    - assets/themes/floralflower/background.png
 
-  # images:
-  #   assets:
-  #     - assets/images/bgFlowerPink.jpeg
   
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

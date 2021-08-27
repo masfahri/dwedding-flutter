@@ -1,6 +1,7 @@
 import 'package:dwedding/main.dart';
 import 'package:dwedding/models/Mempelai.dart';
 import 'package:dwedding/views/acara_page.dart';
+import 'package:dwedding/views/card_page.dart';
 import 'package:dwedding/views/cerita_page.dart';
 import 'package:dwedding/views/galery_page.dart';
 import 'package:dwedding/views/home_page.dart';
@@ -12,8 +13,10 @@ import 'package:mobile_web_view/mobile_web_view.dart';
 import 'package:dwedding/views/ucapan_page.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TabbedAppBarDemoFull extends StatefulWidget {
-  const TabbedAppBarDemoFull({Key? key}) : super(key: key);
+  String domain;
+  TabbedAppBarDemoFull({Key? key, required this.domain}) : super(key: key);
 
   @override
   _TabbedAppBarDemoFullState createState() => _TabbedAppBarDemoFullState();
@@ -26,10 +29,9 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
       home: DefaultTabController(
         length: choices.length,
         child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Digital Wedding'),
-          ),
           body: TabBarView(children: <Widget>[
+            CardPage(), // Card
+
             HomePage(), // Sampul
             MempelaiPage(), // Mempelai
             AcaraPage(), // Acara
@@ -37,7 +39,7 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
             UcapanPage(), //Ucapan
             GaleryPage(), // Galeri
             CeritaPage(), // Cerita
-            HomePage(), // Gift
+
             HomePage(),
           ]),
           bottomNavigationBar: Container(
@@ -87,7 +89,7 @@ const List<Choice> choices = <Choice>[
   Choice(title: 'UCAPAN', icon: Icons.chat_outlined, namaPria: 'asd'),
   Choice(title: 'GALERI', icon: Icons.rsvp, namaPria: 'asd'),
   Choice(title: 'CERITA', icon: Icons.timeline, namaPria: 'asd'),
-  Choice(title: 'MEMPELAI', icon: Icons.favorite, namaPria: 'asd'),
+  Choice(title: 'AMPLOP ONLINE', icon: Icons.card_travel, namaPria: 'asd'),
   Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
 ];
 

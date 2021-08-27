@@ -14,19 +14,24 @@ class _MempelaiPageState extends State<MempelaiPage> {
   @override
   Widget build(BuildContext context) {
     // SizeConfig().init(context);
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: Text(
+          'Digital Wedding',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
       ),
-      child: Container(
+      extendBodyBehindAppBar: true,
+      body: Container(
         decoration: BoxDecoration(
-          color: Colors.red,
-          // Background
           image: DecorationImage(
-              image: new NetworkImage(
-                  "https://cdn.pixabay.com/photo/2020/09/15/16/18/background-5574100_1280.png"),
-              fit: BoxFit.cover),
+            image: NetworkImage(
+              "assets/themes/flowerside/background.png",
+            ),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Column(
           children: <Widget>[

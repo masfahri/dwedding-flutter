@@ -15,80 +15,92 @@ class _AcaraPageState extends State<AcaraPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        // Background
-        image: DecorationImage(
-          image: new NetworkImage(
-              "https://cdn.pixabay.com/photo/2020/09/15/16/18/background-5574100_1280.png"),
-          fit: BoxFit.cover,
+    return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: Text(
+            'Digital Wedding',
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.transparent,
         ),
-      ),
-      margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
-      child: SingleChildScrollView(
-        child: Column(children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                child: Image.network(
-                  "https://inv.simanten.com/images/library/line1.png",
-                  fit: BoxFit.contain,
-                  width: 100,
-                ),
+        extendBodyBehindAppBar: true,
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                "assets/themes/flowerside/background.png",
               ),
-              Text(
-                "Rangkaian Acara",
-                style: TextStyle(
-                    fontFamily: "Playball",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
-              ),
-              Container(
-                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                child: Image.network(
-                  "https://inv.simanten.com/images/library/line1.png",
-                  fit: BoxFit.contain,
-                  width: 100,
-                ),
-              ),
-              SizedBox(height: 90),
-            ],
-          ),
-          Column(
-            children: [
-              Card(
-                color: Colors.black12,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: Column(
-                    children: <Widget>[AcaraResepsi()],
-                  ),
-                ),
-              ),
-              Card(
-                color: Colors.black12,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: Column(
-                    children: <Widget>[AcaraAkad()],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Card(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [],
-              ),
+              fit: BoxFit.cover,
             ),
           ),
-        ]),
-      ),
-    );
+          child: SingleChildScrollView(
+            child: Column(children: <Widget>[
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: Image.network(
+                      "https://inv.simanten.com/images/library/line1.png",
+                      fit: BoxFit.contain,
+                      width: 100,
+                    ),
+                  ),
+                  Text(
+                    "Rangkaian Acara",
+                    style: TextStyle(
+                        fontFamily: "Playball",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: Image.network(
+                      "https://inv.simanten.com/images/library/line1.png",
+                      fit: BoxFit.contain,
+                      width: 100,
+                    ),
+                  ),
+                  SizedBox(height: 90),
+                ],
+              ),
+              Column(
+                children: [
+                  Card(
+                    color: Colors.black12,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Column(
+                        children: <Widget>[AcaraResepsi()],
+                      ),
+                    ),
+                  ),
+                  Card(
+                    color: Colors.black12,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Column(
+                        children: <Widget>[AcaraAkad()],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [],
+                  ),
+                ),
+              ),
+            ]),
+          ),
+        ));
   }
 }

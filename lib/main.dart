@@ -1,35 +1,21 @@
-import 'package:dwedding/NavigationBar/TabbedAppBar.dart';
-import 'package:dwedding/views/side_maps_page.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_web_view/mobile_web_view.dart';
+import 'package:qlevar_router/qlevar_router.dart';
+
+import 'routes.dart';
 
 void main() {
+  QR.settings.enableDebugLog = false;
+  QR.setUrlStrategy();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.blue,
-        ),
-        home: TabbedAppBarDemoFull()
-        //   statusBarIconColor: Colors.white,
-        //   content: SideMap(),
-        //   child: TabbedAppBarDemoFull(),
-        // ),
-        );
-  }
+  Widget build(BuildContext context) => MaterialApp.router(
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.blue,
+      ),
+      routeInformationParser: QRouteInformationParser(),
+      routerDelegate: QRouterDelegate(AppRoutes().routes(), withWebBar: true));
 }

@@ -11,6 +11,16 @@ class GaleryPage extends StatefulWidget {
 class _GaleryPageState extends State<GaleryPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: GaleriCarousel());
+    return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: Text(
+            'Digital Wedding',
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.transparent,
+        ),
+        extendBodyBehindAppBar: true,
+        body: GaleriCarousel());
   }
 }

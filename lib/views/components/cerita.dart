@@ -22,24 +22,54 @@ class _CeritaComponentsState extends State<CeritaComponents> {
       timelineModel(TimelinePosition.Right)
     ];
 
-    return Column(
-      children: [
-        Container(
-          child: Text(
-            'Cerita Kita',
-            style: TextStyle(
-                fontFamily: "Playball",
-                fontWeight: FontWeight.bold,
-                fontSize: 30),
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  child: Image.network(
+                    "https://u.digital.wedding/assets/base/img/bismillah.png",
+                    height: 50,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Cerita Kami',
+                  style: TextStyle(
+                    fontFamily: "Playball",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  child: new Container(
+                    height: MediaQuery.of(context).size.height / 1.5,
+                    decoration: new BoxDecoration(
+                      borderRadius: new BorderRadius.only(
+                        topLeft: const Radius.circular(30.0),
+                        topRight: const Radius.circular(30.0),
+                      ),
+                    ),
+                    child: new Center(
+                      child: timelineModel(TimelinePosition.Center),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: SizedBox(
-            height: 200.0,
-            child: timelineModel(TimelinePosition.Center),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -49,14 +79,14 @@ class _CeritaComponentsState extends State<CeritaComponents> {
       physics: position == TimelinePosition.Left
           ? ClampingScrollPhysics()
           : BouncingScrollPhysics(),
-      position: position);
+      position: position,
+      shrinkWrap: true);
 
   TimelineModel centerTimelineBuilder(BuildContext context, int i) {
     final doodle = doodles[i];
     final textTheme = Theme.of(context).textTheme;
     return TimelineModel(
       Card(
-        margin: EdgeInsets.symmetric(vertical: 16.0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         clipBehavior: Clip.antiAlias,
         child: Padding(
