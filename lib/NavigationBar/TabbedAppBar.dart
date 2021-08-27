@@ -30,8 +30,6 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
         length: choices.length,
         child: Scaffold(
           body: TabBarView(children: <Widget>[
-            CardPage(), // Card
-
             HomePage(), // Sampul
             MempelaiPage(), // Mempelai
             AcaraPage(), // Acara
@@ -39,6 +37,7 @@ class _TabbedAppBarDemoFullState extends State<TabbedAppBarDemoFull> {
             UcapanPage(), //Ucapan
             GaleryPage(), // Galeri
             CeritaPage(), // Cerita
+            CardPage(), // Card
 
             HomePage(),
           ]),
@@ -90,7 +89,7 @@ const List<Choice> choices = <Choice>[
   Choice(title: 'GALERI', icon: Icons.rsvp, namaPria: 'asd'),
   Choice(title: 'CERITA', icon: Icons.timeline, namaPria: 'asd'),
   Choice(title: 'AMPLOP ONLINE', icon: Icons.card_travel, namaPria: 'asd'),
-  Choice(title: 'RSVP', icon: Icons.rsvp, namaPria: 'asd'),
+  Choice(title: 'LOKASI', icon: Icons.maps_home_work, namaPria: 'asd'),
 ];
 
 class ChoicePage extends StatelessWidget {
